@@ -11,8 +11,6 @@ import java.util.Scanner;
  * La posici�n cero del arreglo de coeficientes contiene el coeficiente de grado
  * n. <br>
  * La posici�n n del arreglo de coeficientes contiene al t�rmino independiente.
- * 
- * @author TheBitles
  */
 public class Polinomio {
 
