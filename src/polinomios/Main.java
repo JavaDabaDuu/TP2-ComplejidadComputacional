@@ -9,10 +9,10 @@ import java.util.GregorianCalendar;
 public class Main {
 
 	public static void main(String[] args) {
-		//generarPolinomio(100);
-		//System.out.println("Cargando archivo...");
-		//Polinomio polinomio = new Polinomio("polinomio.in");
-		//rendimiento(polinomio);
+		generarPolinomio(100);
+		System.out.println("Cargando archivo...");
+		Polinomio polinomio = new Polinomio("polinomio.in");
+		rendimiento(polinomio);
 	}
 	
 	public static void rendimiento(Polinomio polinomio) {

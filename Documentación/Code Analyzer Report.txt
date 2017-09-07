@@ -1,0 +1,33 @@
+#######################################################################
+# Code Analyzer 0.7.0
+# Report for Code Set: New
+# Extension Set      : Java
+# Date               : Wed Sep 06 21:25:41 ART 2017
+# Displaying         : Files and Folders
+#######################################################################
+
+File Name                          Files    Lines    AVG Len  Code     Comments White SP Cd/Cm+WS Cd/Cm    Cd/WS    % Code   Cd/File  Cm/File  WS/File  
+--------------------------------   -------- -------- -------- -------- -------- -------- -------- -------- -------- -------- -------- -------- -------- 
+
+New
+--------------------------------          5      464       25      292      118       55     1,69     2,47     5,31     0,63       58       23       11
+
+D:\UNLaM\PROGRAMACIÓN AVANZADA\TPs 2da cursada\TPs de Clase\TP2 - COMPLEJIDAD COMPUTACIONAL
+--------------------------------          5      464       25      292      118       55     1,69     2,47     5,31     0,63       58       23       11
+
+D:\UNLaM\PROGRAMACIÓN AVANZADA\TPs 2da cursada\TPs de Clase\TP2 - COMPLEJIDAD COMPUTACIONAL\src
+--------------------------------          4      376       24      215      118       44     1,33     1,82     4,89     0,57       53       29       11
+
+D:\UNLaM\PROGRAMACIÓN AVANZADA\TPs 2da cursada\TPs de Clase\TP2 - COMPLEJIDAD COMPUTACIONAL\src\polinomios
+--------------------------------          4      376       24      215      118       44     1,33     1,82     4,89     0,57       53       29       11
+BinomioDeNewton.java                      1       48       18       38        0       10     3,80     0,00     3,80     0,79       38        0       10
+Main.java                                 1       55       30       34       11       10     1,62     3,09     3,40     0,62       34       11       10
+MiMath.java                               1       40       20       35        0        5     7,00     0,00     7,00     0,88       35        0        5
+Polinomio.java                            1      233       24      108      107       19     0,86     1,01     5,68     0,46      108      107       19
+
+D:\UNLaM\PROGRAMACIÓN AVANZADA\TPs 2da cursada\TPs de Clase\TP2 - COMPLEJIDAD COMPUTACIONAL\test
+--------------------------------          1       88       31       77        0       11     7,00     0,00     7,00     0,88       77        0       11
+
+D:\UNLaM\PROGRAMACIÓN AVANZADA\TPs 2da cursada\TPs de Clase\TP2 - COMPLEJIDAD COMPUTACIONAL\test\polinomios
+--------------------------------          1       88       31       77        0       11     7,00     0,00     7,00     0,88       77        0       11
+Testing.java                              1       88       31       77        0       11     7,00     0,00     7,00     0,88       77        0       11
