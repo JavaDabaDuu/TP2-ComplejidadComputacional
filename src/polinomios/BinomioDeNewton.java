@@ -1,7 +1,5 @@
 package polinomios;
 
-import mathematica.MiMath;
-
 public class BinomioDeNewton {
 
 	private int a;

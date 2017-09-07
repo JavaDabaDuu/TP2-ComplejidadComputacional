@@ -1,4 +1,4 @@
-package mathematica;
+package polinomios;
 
 public class MiMath {
 
