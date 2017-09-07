@@ -1,5 +1,5 @@
 # Complejidad Computacional
-TP3 de Clase de Programación Avanzada.
+TP2 de Clase de Programación Avanzada.
 
 # Evaluación de Polinomios
 # Binomio de Newton
