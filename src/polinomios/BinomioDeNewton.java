@@ -30,17 +30,17 @@ public class BinomioDeNewton {
 
 	public Polinomio formaPolinomica() {
 		double[] coeficientes = new double[n + 1];
-		for (int i = 0; i < n; i++) {
-			coeficientes[i] = MiMath.combinatoria(n, i) * Math.pow(a, i) * Math.pow(b, n - i);
+		for (int i = 0; i <= n; i++) {
+			coeficientes[i] = MiMath.combinatoria(n, i) * Math.pow(a, n - i) * Math.pow(b, i);
 		}
 		return new Polinomio(coeficientes);
 	}
 
 	public Polinomio formaPolinomicaConTartaglia() {
-		int[][] tartaglia = MiMath.trianguloDeTartaglia(this.n);
+		int[][] tartaglia = MiMath.trianguloDeTartaglia(this.n + 1);
 		double[] coeficientes = new double[n + 1];
-		for (int i = 0; i < n; i++) {
-			coeficientes[i] = tartaglia[n - 1][i] * Math.pow(a, i) * Math.pow(b, n - i);
+		for (int i = 0; i <= n; i++) {
+			coeficientes[i] = tartaglia[n][i] * Math.pow(a, n - i) * Math.pow(b, i);
 		}
 		return new Polinomio(coeficientes);
 	}
