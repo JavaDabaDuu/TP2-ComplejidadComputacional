@@ -5,7 +5,7 @@ public class BinomioDeNewton {
 	private int a;
 	private int b;
 	private int n;
-	
+
 	public int getA() {
 		return a;
 	}
@@ -29,19 +29,18 @@ public class BinomioDeNewton {
 	}
 
 	public Polinomio formaPolinomica() {
-		
 		double[] coeficientes = new double[n + 1];
-		for (int i = 0; i < coeficientes.length; i++) {
-			coeficientes[i] = MiMath.combinatoria(n, i);
+		for (int i = 0; i < n; i++) {
+			coeficientes[i] = MiMath.combinatoria(n, i) * Math.pow(a, i) * Math.pow(b, n - i);
 		}
 		return new Polinomio(coeficientes);
 	}
-	
+
 	public Polinomio formaPolinomicaConTartaglia() {
 		int[][] tartaglia = MiMath.trianguloDeTartaglia(this.n);
-		double[] coeficientes = new double[n];
-		for (int i = 0; i < coeficientes.length; i++) {
-			coeficientes[i] = tartaglia[n - 1][i];
+		double[] coeficientes = new double[n + 1];
+		for (int i = 0; i < n; i++) {
+			coeficientes[i] = tartaglia[n - 1][i] * Math.pow(a, i) * Math.pow(b, n - i);
 		}
 		return new Polinomio(coeficientes);
 	}

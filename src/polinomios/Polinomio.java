@@ -21,6 +21,10 @@ public class Polinomio {
 		return grado;
 	}
 
+	public double getCoeficiente(int i) {
+		return this.coeficientes[i];
+	}
+
 	/**
 	 * Constructor de la clase Polinomio, que lo levanta de un archivo. <br>
 	 * - Primera l�nea: grado del polinomio. Segunda l�nea: (grado + 1)
@@ -47,12 +51,29 @@ public class Polinomio {
 	}
 
 	/**
-	 * Constructor de la clase Polinomio, que recibe un array con los coeficientes del polinomio
-	 * @param coeficientes es el array de coeficientes del polinomio
+	 * Constructor de la clase Polinomio, que recibe un array con los
+	 * coeficientes del polinomio
+	 * 
+	 * @param coeficientes
+	 *            es el array de coeficientes del polinomio
 	 */
 	public Polinomio(double[] coeficientes) {
 		this.grado = coeficientes.length - 1;
-		this.coeficientes = coeficientes;
+		this.coeficientes = coeficientes.clone();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Polinomio polinomio = (Polinomio) obj;
+		if (this.grado != polinomio.getGrado()) {
+			return false;
+		}
+		for (int i = 0; i < this.coeficientes.length; i++) {
+			if (this.coeficientes[i] != polinomio.getCoeficiente(i)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**
@@ -110,11 +131,12 @@ public class Polinomio {
 	 * @return Se retorna la evaluaci�n del polinomio
 	 */
 	public double evaluarProgDinamica(double x) {
-		double[] copy = new double[coeficientes.length]; //= coeficientes.clone();
+		double[] copy = new double[coeficientes.length]; // =
+															// coeficientes.clone();
 		copy[0] = 1;
-		for (int i = 1; i < copy.length; i++){
-			copy[0] += copy[i] = x * copy[i-1];
-			//copy[0] += copy[i];
+		for (int i = 1; i < copy.length; i++) {
+			copy[0] += copy[i] = x * copy[i - 1];
+			// copy[0] += copy[i];
 		}
 		return copy[0];
 	}
@@ -136,7 +158,7 @@ public class Polinomio {
 			p *= x;
 		}
 		return y;
-		
+
 	}
 
 	/**
@@ -200,11 +222,11 @@ public class Polinomio {
 	private double potenciaRecursiva(double x, int n) {
 		if (n == 1) {
 			return x;
-		} else if(n == 0) {
-				return 1;
-			} else {
-				return x * potenciaRecursiva(x, n - 1);
-			}
+		} else if (n == 0) {
+			return 1;
+		} else {
+			return x * potenciaRecursiva(x, n - 1);
+		}
 	}
 
 	/**
@@ -220,7 +242,7 @@ public class Polinomio {
 	private double potenciaRecursivaPar(double x, int n) {
 		if (n == 1) {
 			return x;
-		} else if(n == 0) {
+		} else if (n == 0) {
 			return 1;
 		} else if (n % 2 == 0) {
 			return potenciaRecursivaPar(x * x, n / 2);
@@ -228,4 +250,5 @@ public class Polinomio {
 			return x * potenciaRecursivaPar(x, n - 1);
 		}
 	}
+
 }
