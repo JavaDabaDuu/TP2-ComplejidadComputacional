@@ -7,9 +7,7 @@ public class MiMath {
 	}
 
 	public static int combinatoriaRecursiva(int m, int n) {
-		if (m == 0 || m == n) {
-			return 1;
-		} else if (n == 0) {
+		if (m == 0 || m == n || n == 0) {
 			return 1;
 		} else {
 			return combinatoriaRecursiva(m - 1, n - 1) + combinatoriaRecursiva(m - 1, n);

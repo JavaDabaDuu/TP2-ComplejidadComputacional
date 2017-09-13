@@ -131,8 +131,7 @@ public class Polinomio {
 	 * @return Se retorna la evaluaci�n del polinomio
 	 */
 	public double evaluarProgDinamica(double x) {
-		double[] copy = new double[coeficientes.length]; // =
-															// coeficientes.clone();
+		double[] copy = new double[coeficientes.length];
 		copy[0] = 1;
 		for (int i = 1; i < copy.length; i++) {
 			copy[0] += copy[i] = x * copy[i - 1];
@@ -158,7 +157,6 @@ public class Polinomio {
 			p *= x;
 		}
 		return y;
-
 	}
 
 	/**
