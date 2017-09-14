@@ -14,17 +14,25 @@ public class BinomioDeNewtonTest {
 	}
 
 	@Test
-	public void testCoeficienteK() {
+	public void testCoeficienteKConCombinatoria() {
 		BinomioDeNewton binomio = new BinomioDeNewton(2, 1, 2);
-		Assert.assertEquals(binomio.coeficienteK(binomio.getN()), 4);
-		Assert.assertEquals(binomio.coeficienteK(1), 4);
-		Assert.assertEquals(binomio.coeficienteK(0), 1);
+		Assert.assertEquals(4, binomio.coeficienteKConCombinatoria(0));
+		Assert.assertEquals(4, binomio.coeficienteKConCombinatoria(1));
+		Assert.assertEquals(1, binomio.coeficienteKConCombinatoria(2));
 	}
 
 	@Test
-	public void testFormaPolinomica() {
+	public void testCoeficienteKConTartaglia() {
 		BinomioDeNewton binomio = new BinomioDeNewton(2, 1, 2);
-		Polinomio p = binomio.formaPolinomica();
+		Assert.assertEquals(4, binomio.coeficienteKConTartaglia(0));
+		Assert.assertEquals(4, binomio.coeficienteKConTartaglia(1));
+		Assert.assertEquals(1, binomio.coeficienteKConTartaglia(2));
+	}
+
+	@Test
+	public void testFormaPolinomicaConCombinatoria() {
+		BinomioDeNewton binomio = new BinomioDeNewton(2, 1, 2);
+		Polinomio p = binomio.formaPolinomicaConCombinatoria();
 		double[] coeficientes = { 4, 4, 1 };
 		Polinomio q = new Polinomio(coeficientes);
 		Assert.assertTrue(p.equals(q));

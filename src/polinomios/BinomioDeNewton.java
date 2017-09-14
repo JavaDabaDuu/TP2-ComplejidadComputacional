@@ -5,6 +5,8 @@ public class BinomioDeNewton {
 	private int a;
 	private int b;
 	private int n;
+	
+	private int [][] tartaglia;
 
 	public int getA() {
 		return a;
@@ -22,25 +24,33 @@ public class BinomioDeNewton {
 		this.a = a;
 		this.b = b;
 		this.n = n;
+		this.generarTrianguloDeTartaglia(n + 1);
 	}
 
-	public int coeficienteK(int k) {
-		return (int) (MiMath.combinatoria(n, k) * Math.pow(a, k) * Math.pow(b, n - k));
+	private void generarTrianguloDeTartaglia(int i) {
+		this.tartaglia = MiMath.trianguloDeTartaglia(this.n + 1);
 	}
 
-	public Polinomio formaPolinomica() {
+	public int coeficienteKConCombinatoria(int k) {
+		return (int) (MiMath.combinatoria(n, k) * Math.pow(a, n - k) * Math.pow(b, k));
+	}
+	
+	public int coeficienteKConTartaglia(int k) {
+		return (int) (this.tartaglia[n][k] * Math.pow(a, n - k) * Math.pow(b,k));
+	}
+
+	public Polinomio formaPolinomicaConCombinatoria() {
 		double[] coeficientes = new double[n + 1];
 		for (int i = 0; i <= n; i++) {
-			coeficientes[i] = MiMath.combinatoria(n, i) * Math.pow(a, n - i) * Math.pow(b, i);
+			coeficientes[i] = this.coeficienteKConCombinatoria(i);
 		}
 		return new Polinomio(coeficientes);
 	}
 
 	public Polinomio formaPolinomicaConTartaglia() {
-		int[][] tartaglia = MiMath.trianguloDeTartaglia(this.n + 1);
 		double[] coeficientes = new double[n + 1];
 		for (int i = 0; i <= n; i++) {
-			coeficientes[i] = tartaglia[n][i] * Math.pow(a, n - i) * Math.pow(b, i);
+			coeficientes[i] = this.coeficienteKConTartaglia(i);
 		}
 		return new Polinomio(coeficientes);
 	}
