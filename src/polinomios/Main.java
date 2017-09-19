@@ -9,9 +9,9 @@ import java.util.GregorianCalendar;
 public class Main {
 
 	public static void main(String[] args) {
-		generarPolinomio(2);
+		generarPolinomio(10000);
 		System.out.println("Cargando archivo...");
-		Polinomio polinomio = new Polinomio("polinomio2.in");
+		Polinomio polinomio = new Polinomio("polinomio10000.in");
 		rendimiento(polinomio);
 		
 		/*BinomioDeNewton b1 = new BinomioDeNewton(19, 22, 100);
@@ -31,11 +31,12 @@ public class Main {
 		System.out.println("Rendimiento del algoritmo: " + variacionTiempo2 + "\nfrom:\nfinal:   " + tiempoFinal2.getTimeInMillis() + "\ninicial: " + tiempoInicial.getTimeInMillis());
 		
 		//Recursiva
-		double y = polinomio.evaluarRecursiva(0.001);
+		/*double y = polinomio.evaluarRecursiva(0.001);
 		Calendar tiempoFinal1 = new GregorianCalendar();	
 		System.out.println("\nEvaluar Recursiva: " + y);
 		long variacionTiempo = tiempoFinal1.getTimeInMillis() - tiempoInicial.getTimeInMillis();
 		System.out.println("Rendimiento del algoritmo: " + variacionTiempo + "\nfrom:\nfinal:   " + tiempoFinal1.getTimeInMillis() + "\ninicial: " + tiempoInicial.getTimeInMillis());
+		*/
 		
 		//Recursiva Par
 		double y4 = polinomio.evaluarRecursivaPar(0.001);
@@ -76,7 +77,7 @@ public class Main {
 	
 	public static void generarPolinomio(int grado) {
 		try {
-			FileWriter arch = new FileWriter("polinomio2.in");
+			FileWriter arch = new FileWriter("polinomio10000.in");
 			BufferedWriter buffer = new BufferedWriter(arch);
 			
 			System.out.println("Generando polinomio...");
