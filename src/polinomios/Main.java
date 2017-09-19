@@ -9,35 +9,74 @@ import java.util.GregorianCalendar;
 public class Main {
 
 	public static void main(String[] args) {
-		generarPolinomio(100);
+		generarPolinomio(2);
 		System.out.println("Cargando archivo...");
-		Polinomio polinomio = new Polinomio("polinomio.in");
+		Polinomio polinomio = new Polinomio("polinomio2.in");
 		rendimiento(polinomio);
+		
+		/*BinomioDeNewton b1 = new BinomioDeNewton(19, 22, 100);
+		rendimientoBinomio(b1);*/
 	}
 	
 	public static void rendimiento(Polinomio polinomio) {
 		System.out.println("Evaluando rendimiento...");
 		
 		Calendar tiempoInicial = new GregorianCalendar();
-		double y = polinomio.evaluarRecursiva(2);
-		//double y = polinomio.evaluarMSucesivas(2);
-		//double y = polinomio.evaluarPow(2);
-		//double y = polinomio.evaluarRecursivaPar(2);
-		//double y = polinomio.evaluarProgDinamica(2);
-		//double y = polinomio.evaluarMejorada(2);
-		//double y = polinomio.evaluarHorner(2);
-		//double y = polinomio.evaluarMejorada(2);
-		Calendar tiempoFinal = new GregorianCalendar();
 		
-		System.out.println("\nResultado: " + y);
-		long variacionTiempo = tiempoFinal.getTimeInMillis() - tiempoInicial.getTimeInMillis();
-		System.out.println("Rendimiento del algoritmo: " + variacionTiempo + "\nfrom:\nfinal:   " + tiempoFinal.getTimeInMillis() + "\ninicial: " + tiempoInicial.getTimeInMillis());
+		//EvaluarMSucesivas
+		double y2 = polinomio.evaluarMSucesivas(0.001);
+		Calendar tiempoFinal2 = new GregorianCalendar();	
+		System.out.println("\nEvaluar Sucesiva: " + y2);
+		long variacionTiempo2 = tiempoFinal2.getTimeInMillis() - tiempoInicial.getTimeInMillis();
+		System.out.println("Rendimiento del algoritmo: " + variacionTiempo2 + "\nfrom:\nfinal:   " + tiempoFinal2.getTimeInMillis() + "\ninicial: " + tiempoInicial.getTimeInMillis());
 		
+		//Recursiva
+		double y = polinomio.evaluarRecursiva(0.001);
+		Calendar tiempoFinal1 = new GregorianCalendar();	
+		System.out.println("\nEvaluar Recursiva: " + y);
+		long variacionTiempo = tiempoFinal1.getTimeInMillis() - tiempoInicial.getTimeInMillis();
+		System.out.println("Rendimiento del algoritmo: " + variacionTiempo + "\nfrom:\nfinal:   " + tiempoFinal1.getTimeInMillis() + "\ninicial: " + tiempoInicial.getTimeInMillis());
+		
+		//Recursiva Par
+		double y4 = polinomio.evaluarRecursivaPar(0.001);
+		Calendar tiempoFinal4 = new GregorianCalendar();	
+		System.out.println("\nEvaluar Recursiva par: " + y4);
+		long variacionTiempo4 = tiempoFinal4.getTimeInMillis() - tiempoInicial.getTimeInMillis();	
+		System.out.println("Rendimiento del algoritmo: " + variacionTiempo4 + "\nfrom:\nfinal:   " + tiempoFinal4.getTimeInMillis() + "\ninicial: " + tiempoInicial.getTimeInMillis());
+		
+		//Dinamica
+		double y5 = polinomio.evaluarProgDinamica(0.001);
+		Calendar tiempoFinal5 = new GregorianCalendar();	
+		System.out.println("\nEvaluar dinamica: " + y5);
+		long variacionTiempo5= tiempoFinal5.getTimeInMillis() - tiempoInicial.getTimeInMillis();
+		System.out.println("Rendimiento del algoritmo: " + variacionTiempo5 + "\nfrom:\nfinal:   " + tiempoFinal5.getTimeInMillis() + "\ninicial: " + tiempoInicial.getTimeInMillis());
+		
+		//Mejorada
+		double y6 = polinomio.evaluarMejorada(0.001);
+		Calendar tiempoFinal6 = new GregorianCalendar();	
+		System.out.println("\nEvaluar mejorada: " + y6);
+		long variacionTiempo6 = tiempoFinal6.getTimeInMillis() - tiempoInicial.getTimeInMillis();
+		System.out.println("Rendimiento del algoritmo: " + variacionTiempo6 + "\nfrom:\nfinal:   " + tiempoFinal6.getTimeInMillis() + "\ninicial: " + tiempoInicial.getTimeInMillis());
+		
+		//Pow
+		double y3 = polinomio.evaluarPow(0.001);
+		Calendar tiempoFinal3 = new GregorianCalendar();	
+		System.out.println("\nEvaluar Pow: " + y3);
+		long variacionTiempo3 = tiempoFinal3.getTimeInMillis() - tiempoInicial.getTimeInMillis();
+		System.out.println("Rendimiento del algoritmo: " + variacionTiempo3 + "\nfrom:\nfinal:   " + tiempoFinal3.getTimeInMillis() + "\ninicial: " + tiempoInicial.getTimeInMillis());
+		
+		//Horner
+		double y7 = polinomio.evaluarHorner(0.001);
+		Calendar tiempoFinal7 = new GregorianCalendar();	
+		System.out.println("\nHorner: " + y7);
+		long variacionTiempo7 = tiempoFinal7.getTimeInMillis() - tiempoInicial.getTimeInMillis();
+		System.out.println("Rendimiento del algoritmo: " + variacionTiempo7 + "\nfrom:\nfinal:   " + tiempoFinal7.getTimeInMillis() + "\ninicial: " + tiempoInicial.getTimeInMillis());
+	
 	}
 	
 	public static void generarPolinomio(int grado) {
 		try {
-			FileWriter arch = new FileWriter("polinomio.in");
+			FileWriter arch = new FileWriter("polinomio2.in");
 			BufferedWriter buffer = new BufferedWriter(arch);
 			
 			System.out.println("Generando polinomio...");
@@ -52,4 +91,9 @@ public class Main {
 			e.printStackTrace();
 		}
 	}
+	
+	/*public static void rendimientoBinomio (BinomioDeNewton binomio) {
+		Calendar tIni = new GregorianCalendar();
+		
+	}*/
 }
