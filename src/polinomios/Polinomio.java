@@ -131,13 +131,16 @@ public class Polinomio {
 	 * @return Se retorna la evaluaci�n del polinomio
 	 */
 	public double evaluarProgDinamica(double x) {
-		double[] copy = new double[coeficientes.length];
-		copy[0] = 1;
-		for (int i = 1; i < copy.length; i++) {
-			copy[0] += copy[i] = x * copy[i - 1];
-			// copy[0] += copy[i];
+		double[] vec = new double[this.coeficientes.length];
+		vec[0] = 1;
+		for (int i = 1; i < this.coeficientes.length; i++) {
+			vec[i] = x * vec[i - 1];
 		}
-		return copy[0];
+		double result = 0;
+		for (int i = 0; i < vec.length; i++) {
+			result += vec[i] * this.coeficientes[this.grado - i];
+		}
+		return result;
 	}
 
 	/**
@@ -184,8 +187,8 @@ public class Polinomio {
 	 * @return Se retorna la evaluaci�n del polinomio
 	 */
 	public double evaluarHorner(double x) {
-		double y = 0;
-		for (int i = coeficientes.length - 1; i >= 0; i--) {
+		double y = this.coeficientes[0];
+		for (int i = 1; i <= grado; i++) {
 			y = coeficientes[i] + x * y;
 		}
 		return y;
